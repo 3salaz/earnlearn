@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic">
+
+    <link rel="stylesheet" href="./master.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="videoWrapper">
+        <section id="highlights" class="e-col-12">
+            <div class="e-row">
+                <header>
+                    <h2>🥳 New Video Content Has Arrived</h2>
+                </header>
+                <ul id="flyers" class="flyers-wrapper e-container">
+                    <li onclick="featured(0)" class="flyer overlay">
+                        <img src="https://earnandlearn.s3.us-west-1.amazonaws.com/images/flyers/Contra-Costa-County-Manufacturing-Week-400.png"
+                            alt="Snow" style="width:100%;">
+                        <div class="overlay-content">Contra Consta Manufacturing Week </div>
+                    </li>
+                    <li onclick="featured(1)" class="flyer overlay">
+                        <img src="https://earnandlearn.s3.us-west-1.amazonaws.com/images/flyers/Santa-Clara-County-AME-400.png"
+                            alt="Snow" style="width:100%;">
+                        <div class="overlay-content">Santa Clara County Art & Media Ent | College And Career Launch
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Hidden On Start -->
+        <section id="videoPlayer" class="videoPlayer e-col-8 hide">
+            <video id="video" controls autoplay
+                poster="https://firebasestorage.googleapis.com/v0/b/earn-and-learn-6172e.appspot.com/o/site%2FlandingPage%2Fvideo_call.svg?alt=media&token=720820a9-83e5-4b7d-a85e-26e5a51eddcb">
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+            <!-- <details>
+            <div class="videoDetails">
+              <div class="description">
+      
+              </div>
+            </div>
+          </details> -->
+            <details>
+                <summary><span id="videoTitle">Select A Video From The Library! 👉🏽</span></summary>
+                <div class="content">
+                    <div id="timeStamps" class="hide">
+                        <div data-timestamp="01:14" onclick="skipToTimeStamp(this)" id="timeStamp0">
+                            <div class="timeStampBtn">
+                                <h5 class="timeStampName">Introductions</h5>
+                                <p>01:14</p>
+                            </div>
+                        </div>
+                        <div data-timestamp="01:14" onclick="skipToTimeStamp(this)" id="timeStamp0">
+                            <div class="timeStampBtn">
+                                <h5 class="timeStampName">Introductions</h5>
+                                <p>01:14</p>
+                            </div>
+                        </div>
+                        <div data-timestamp="01:14" onclick="skipToTimeStamp(this)" id="timeStamp0">
+                            <div class="timeStampBtn">
+                                <h5 class="timeStampName">Introductions</h5>
+                                <p>01:14</p>
+                            </div>
+                        </div>
+                        <div data-timestamp="01:14" onclick="skipToTimeStamp(this)" id="timeStamp0">
+                            <div class="timeStampBtn">
+                                <h5 class="timeStampName">Introductions</h5>
+                                <p>01:14</p>
+                            </div>
+                        </div>
+                        <div data-timestamp="01:14" onclick="skipToTimeStamp(this)" id="timeStamp0">
+                            <div class="timeStampBtn">
+                                <h5 class="timeStampName">Introductions</h5>
+                                <p>01:14</p>
+                            </div>
+                        </div>
+                        <div data-timestamp="01:14" onclick="skipToTimeStamp(this)" id="timeStamp0">
+                            <div class="timeStampBtn">
+                                <h5 class="timeStampName">Introductions</h5>
+                                <p>01:14</p>
+                            </div>
+                        </div>
+                        <div data-timestamp="01:14" onclick="skipToTimeStamp(this)" id="timeStamp0">
+                            <div class="timeStampBtn">
+                                <h5 class="timeStampName">Introductions</h5>
+                                <p>01:14</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="description"></p>
+                    <div class="videoInfo">
+                        <a href=""><span class="material-icons">info</span></a>
+                        <img class="responsive-img"
+                            src="https://images.squarespace-cdn.com/content/v1/5d2d1af89bbd0800019dd9c5/1563301726385-0J48VTL8IOK6V5G3K38S/earnlearn_logotitle+%281%29.png?format=1500w"
+                            alt="">
+                    </div>
+                </div>
+            </details>
+
+        </section>
+        <aside id="sidebar" class="e-col-4 hide">
+            <header>
+                <h4>Check Out Our Featured Content</h4>
+            </header>
+            <div id="tags" class="e-col-12"></div>
+            <div id="gallery"></div>
+        </aside>
+    </div>
+
+    <section id="speakers" class="e-row">
+        <header class="e-container">
+            <h2>Speakers</h2>
+        </header>
+        <div id="speakersList" class="e-container"></div>
+    </section>
+    <script src="./main.js"></script>
+</body>
+
+</html>
